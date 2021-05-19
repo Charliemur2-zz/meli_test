@@ -1,0 +1,49 @@
+.search-box {
+  width: 100%;
+  background-color: $primary-yellow;
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &__logo {
+    width: 30%;
+    text-align: center;
+    padding-top: 3.5%;
+    @include responsive-page(md) {
+      width: 20%;
+      text-align: end;
+      padding: 1.5% 2% 0 0;
+    }
+    @include responsive-page(desktop) {
+      padding: 1% 1% 0 0;
+    }
+  }
+  .search {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    @include responsive-page(md) {
+      width: 80%;
+    }
+    &__input {
+      width: 80%;
+      height: 39px;
+      border: none;
+      text-align: center;
+    }
+    &__input:focus {
+      outline: none;
+    }
+    &__btn {
+      width: 10%;
+      height: 39px;
+      border: none;
+      padding-top: 5px;
+      @include responsive-page(md) {
+        width: 5%;
+      }
+    }
+  }
+}
