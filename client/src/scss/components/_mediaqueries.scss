@@ -1,0 +1,12 @@
+/* Mixing for mediaqueries */
+
+@mixin responsive-page ($device) {
+
+  @if ($device==smd) { 
+    @media screen and (max-width: 767px) { @content; }
+  } @else if ($device==md) { 
+    @media screen and (min-width: 768px) { @content; }
+  } @else if ($device==desktop) { 
+    @media screen and (min-width: 1024px) { @content; } 
+  } 
+}
