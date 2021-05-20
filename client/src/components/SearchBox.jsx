@@ -10,13 +10,13 @@ const SearchBox = () => {
         <div className="container">
           <div className="search-box__logo">
             <a href="https://www.mercadolibre.com.co/" className="search-box__link">
-              <img class="seach__img" src={logo} alt="logo" />
+              <img className="seach__img" src={logo} alt="logo" />
             </a>
           </div>
           <form className="search">
-            <input class="search__input" type="text" placeholder="search" name="term" role="term" />
-            <button class="search__btn">
-              <img src={search} alt="search-icon" />
+            <input className="search__input" type="text" placeholder="search" name="term" role="term" />
+            <button className="search__btn">
+              <img className="search__btn-icon" src={search} alt="search-icon" />
             </button>
           </form>
         </div>
