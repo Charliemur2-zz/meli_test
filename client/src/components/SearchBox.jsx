@@ -13,6 +13,13 @@ const SearchBox = ({ onFormSubmit }) => {
 
     onFormSubmit(term);
   }
+
+  const onClick = event => {
+    event.preventDefault();
+    history.push(`/items?q=${term}`);
+
+    onFormSubmit(term);
+  }
   return (
       <div className="search-box" role="search">
         <div className="wrapper">
@@ -30,7 +37,7 @@ const SearchBox = ({ onFormSubmit }) => {
                 value={term} 
                 role="term" 
                 onChange={(event) => setTerm(event.target.value)}/>
-              <button className="search__btn">
+              <button className="search__btn" onClick={onClick}>
                 <img className="search__btn-icon" src={search} alt="search-icon" />
               </button>
             </form>
