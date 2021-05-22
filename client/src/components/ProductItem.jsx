@@ -8,15 +8,17 @@ const ProductItem = ({ product }) => {
   let productUrl = `/api/items/${product.id}`;
 
   return (
-    <Link to={productUrl} className="product">
-      <div className="product__picture">
-        <img src={product.picture} alt="product" />
+    <Link to={productUrl} className="product__link">
+      <div className="product">
+        <div className="product__picture">
+          <img className="product__img" src={product.picture} alt="product" />
+        </div>
+        <div className="product__info">
+          <p className="product__price">{product.price.amount}</p>
+          <p className="product__title">{product.title}</p>
+        </div>
+        <div className="product__place">Argentina</div>
       </div>
-      <div className="product__info">
-        <div className="product__price">{product.price.amount}</div>
-        <div className="product__title">{product.title}</div>
-      </div>
-      <div className="product__place">site</div>
     </Link>
   )
 };

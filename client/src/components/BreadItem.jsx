@@ -2,7 +2,7 @@ import React from 'react';
 
 const BreadItem = (category) => {
   return (
-    <p>{category.category}</p>
+    <p className="breadItem">{category.category}</p>
   )
 }
 

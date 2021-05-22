@@ -32,6 +32,12 @@
       height: 39px;
       border: none;
       text-align: center;
+      @include responsive-page(md) {
+        width: 82%;
+      }
+      @include responsive-page(desktop) {
+        width: 76%;
+      }
     }
     &__input:focus {
       outline: none;

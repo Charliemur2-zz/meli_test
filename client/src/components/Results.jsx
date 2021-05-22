@@ -9,7 +9,13 @@ const Results = ({ products }) => {
     return <ProductItem product={product}/>
   });
   return (
-    <div>{renderProducts}</div>  
+    <div className="results">
+      <div className="wrapper">
+        <div className="container">
+          {renderProducts}  
+        </div>
+      </div>
+    </div>
   ) 
 }
 
