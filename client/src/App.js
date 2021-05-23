@@ -8,16 +8,21 @@ import {Router, Route} from 'react-router-dom';
 import axios from 'axios';
 import history from './history';
 
+
 const App = () => {
 
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const onTermSubmit = async (term) => {
-    const response = await axios.get(`http://localhost:8081/api/items?q=${term}`);
-
-    setProducts(response.data.items);
-    setCategories(response.data.categories);
+    axios.get(`http://localhost:8081/api/items?q=${term}`)
+    .then((res) => {
+      setProducts(res.data.items);
+      setCategories(res.data.categories);
+    })
+    .catch((error) => {
+      console.log('error');
+    });
   }
   return (
     <Router history={history}>
@@ -26,7 +31,7 @@ const App = () => {
       <Route exact path="/items">
         <Results products={products}/>
       </Route>
-      <Route exact path="/api/items/:id">
+      <Route exact path="/items/:id">
         <ProductDetail />
       </Route>
     </Router>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import history from '../history';
 import axios from 'axios';
+import Loader from './Loader';
 
 
 const ProductDetail = () => {
   const [ state, setState] = useState({ data: [], loading: true});
-  const id = history.location.pathname.slice(11);
+  const id = history.location.pathname.slice(7);
  /*  let data = []; */
   useEffect(() => {    
     axios.get(`http://localhost:8081/api/items/${id}`)
@@ -13,17 +14,22 @@ const ProductDetail = () => {
         setState({ data: res.data, loading: false });
       })
       .catch((error) => {
-        console.log('error');
+        console.log('error')
       });
   }, [id])
   if (state.loading) {
-    return ('loading');
+    return (<Loader />);
   } else {
     let product = state.data.item;
     let currency = product.price.currency.slice(0, -1);
     let formatedPrice = product.price.amount.toLocaleString(`es-${currency}`);
-    let decimals = parseInt(product.price.decimals * 100);
-    console.log(decimals);
+    let decimals = parseInt(product.price.decimals);
+
+    if (decimals === 0) {
+      decimals = String(decimals).padStart(2, '0');
+    } else {
+      decimals *= 100;
+    }
     return (
       <div className="product-detail">
         <div className="wrapper">
