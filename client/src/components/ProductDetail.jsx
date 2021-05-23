@@ -10,7 +10,6 @@ const ProductDetail = () => {
   useEffect(() => {    
     axios.get(`http://localhost:8081/api/items/${id}`)
       .then((res) => {
-        console.log(res);
         setState({ data: res.data, loading: false });
       })
       .catch((error) => {
@@ -20,29 +19,36 @@ const ProductDetail = () => {
   if (state.loading) {
     return ('loading');
   } else {
-    console.log(state.data);
     let product = state.data.item;
+    let currency = product.price.currency.slice(0, -1);
+    let formatedPrice = product.price.amount.toLocaleString(`es-${currency}`);
+    let decimals = parseInt(product.price.decimals * 100);
+    console.log(decimals);
     return (
       <div className="product-detail">
-        <div className="product-detail__picture">
-          <img src={product.picture} alt="product" />
-        </div>
-        <div className="product-detail__info">
-          <div className="product-detail__aditional">
-            <p className="condition">{product.condition}</p>
-            <p className="sold">{product.sold_quantity} vendidos</p>
+        <div className="wrapper">
+          <div className="container">
+            <div className="product-detail__picture">
+              <img className="product-detail__img" src={product.picture} alt="product" />
+            </div>
+            <div className="product-detail__info">
+              <div className="product-detail__aditional">
+                <p className="condition">{product.condition} - </p>
+                <p className="sold">{product.sold_quantity} vendidos</p>
+              </div>
+              <p className="product-detail__title">{product.title}</p>
+              <p className="product-detail__price">$ {formatedPrice}<span className="decimals">{decimals}</span></p>
+              <div className="cta">
+                <a href="https://www.mercadolibre.com.ar/" className="cta__btn">Comprar</a>
+              </div>
+            </div>
+            <div className="product-detail__description">
+              <h2 className="description__title">Descripción del Producto</h2>
+              <p className="description__text">
+                {product.description}
+              </p>
+            </div>
           </div>
-          <div className="product-detail__price">{product.price.amount}</div>
-          <div className="product-detail__title">{product.title}</div>
-          <div className="cta">
-            <a href="https://www.mercadolibre.com.ar/" className="cta">Comprar</a>
-          </div>
-        </div>
-        <div className="product-detail__description">
-          <h2 className="description__title">Descripción del Producto</h2>
-          <p className="description__text">
-            {product.description}
-          </p>
         </div>
       </div>
     )

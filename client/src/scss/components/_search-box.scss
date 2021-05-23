@@ -29,7 +29,7 @@
     }
     &__input {
       width: 80%;
-      height: 39px;
+      height: 100%;
       border: none;
       text-align: center;
       @include responsive-page(md) {
