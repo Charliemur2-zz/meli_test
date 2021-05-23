@@ -1,0 +1,18 @@
+.BreadCrumb {
+  .container{
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px 0;
+    @include responsive-page(md) {
+      width: 78%;
+    }
+    @include responsive-page(desktop) {
+      max-width: 950px;
+    }
+    .breadItem {
+      margin-right: 10px;
+      opacity: 0.6;
+    }
+  }
+}

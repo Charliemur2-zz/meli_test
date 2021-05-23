@@ -1,3 +1,70 @@
-.main {
-  width: 100%;
+.results {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    @include responsive-page(md) {
+      width: 78%;
+    }
+    @include responsive-page(desktop) {
+      max-width: 996px;
+      width: 100%;
+    }
+  }
+  .product {
+    background-color: white;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: 	#282724;
+    justify-content: center;
+    align-items: center;
+    @include responsive-page(md) {
+      flex-direction: row;
+      justify-content: unset;
+      align-items: unset;
+    }
+    &__picture {
+      width: 100%;
+      @include responsive-page(md) {
+        width: 20%;
+      }
+    }
+    &__img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    &__info {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      @include responsive-page(md) {
+        width: 60%;
+        text-align: unset;
+      }
+    }
+    &__price {
+      padding-top: 5%;
+      font-size: 1.5rem;
+      @include responsive-page(md) {
+        padding-top: 0;
+      }
+    }
+    &__title {
+      padding-top: 5%;
+      font-size: 1.2rem;
+      @include responsive-page(md) {
+        padding-right: 35%;
+      }
+    }
+    &__place {
+      @include responsive-page(md) {
+        width: 20%;
+        padding-top: 5%;
+      }
+    }
+
+  }
 }

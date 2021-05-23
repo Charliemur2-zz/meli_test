@@ -1,0 +1,110 @@
+.product-detail {
+  .container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    color: 	#282724;
+    @include responsive-page(md) {
+      width: 78%;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include responsive-page(desktop) {
+      max-width: 996px;
+      width: 100%;
+    }
+  }
+  &__picture {
+    width: 100%;
+    @include responsive-page(md) {
+      width: 65%;
+    }
+    @include responsive-page(md) {
+      width: 70%;
+    }
+  }
+  &__img {
+      width: 100%;
+      border-radius: 5px;
+  }
+  &__info {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    @include responsive-page(md) {
+      width: 35%;
+      text-align: unset;
+      padding: 0;
+    }
+    @include responsive-page(md) {
+      width: 30%
+    }
+    .cta {
+      width: 200px;
+      background-color: #3483fa;
+      padding: 10px 0;
+      margin: 30px auto;
+      border-radius: 5px;
+      @include responsive-page(md) {
+        width: 100%;
+        padding: 10px 32%;
+      }
+      @include responsive-page(desktop) {
+        width: 80%;
+        margin: 30px auto 0 0;
+      }
+      &__btn {
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+  &__aditional {
+    width: 100%;
+    display: flex;
+    opacity: 0.6;
+    justify-content: center;
+    @include responsive-page(md) {
+      justify-content: flex-start;
+    }
+  }
+  &__price {
+    padding-top: 5%;
+    font-size: 2rem;
+    opacity: 0.7;
+    .decimals {
+      font-size: 1.4rem;
+    }
+    @include responsive-page(desktop) {
+      font-size: 2rem;
+    }
+  }
+  &__title {
+    padding-top: 5%;
+    font-size: 1.2rem;
+    font-weight: 900;
+    opacity: 0.7;
+  }
+  &__description {
+    text-align: center;
+    @include responsive-page(md) {
+      text-align: start;
+      width: 65%;
+    }
+    @include responsive-page(desktop) {
+      padding-top: 90px;
+    }
+    .description__title {
+      padding: 10px;
+      opacity: 0.8;
+    }
+    .description__text {
+      padding: 10px;
+      opacity: 0.6;
+    }
+  }
+}
